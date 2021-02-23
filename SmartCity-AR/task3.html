@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<!-- we import arjs version without NFT but with marker
++ location based support -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<body style="margin : 0px; overflow: hidden;">
+<a-scene embedded arjs>
+    <a-assets>
+        <audio id="BoomBox_sound" src="assets/grandmasta_pete_meres.mp3" response-type="arraybuffer" autoplay="true" loop></audio>
+        <a-asset-item id="BoomBox" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoomBox/glTF/BoomBox.gltf"></a-asset-item>
+    </a-assets>
+
+    <!-- handle hiro marker -->
+    <a-marker preset="hiro">
+        <!-- raw.githack.com serves raw files directly from GitHub,
+        with proper Content-Type headers -->
+        <!-- first entity: reference to the above glTF model -->
+        <a-entity
+                position="0 -1 0"
+                scale="0.5 0.5 0.5"
+                gltf-model="#BoomBox"
+        >
+        </a-entity>
+        <a-text
+                position="-0.5 -0.5 -0.1"
+                value="GrandMasta PETE!"
+                color="#FF0000"
+                scale="5 5 5"
+                rotation="-90 0 0"
+        >
+        </a-text>
+
+        <!-- second entity: reference to the above audio -->
+        <a-entity sound="src: #helmet_sound; volume: 1; loop: true">
+        </a-entity>
+    </a-marker>
+
+    <!-- add a camera to the scene that renders the objects for us -->
+    <a-entity camera></a-entity>
+</a-scene>
+</body>
+</html>
