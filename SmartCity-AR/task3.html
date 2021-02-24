@@ -6,7 +6,7 @@
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <body style="margin : 0px; overflow: hidden;">
 <a-scene embedded arjs>
-    <a-assets>
+    <a-assets timeout="10000">
         <audio id="BoomBox_sound" src="assets/grandmasta_pete_meres.mp3" response-type="arraybuffer" autoplay="true" loop></audio>
         <a-asset-item id="BoomBox" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoomBox/glTF/BoomBox.gltf"></a-asset-item>
     </a-assets>
